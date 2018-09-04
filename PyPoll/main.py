@@ -1,3 +1,15 @@
+#functions
+    #pull list of unique names - create index 
+
+
+#read csv file
+#run  function that pulls a list of unique names 
+#create dictionary out of list that includes
+    #Candidate name
+    #votes
+    #
+
+
 import os
 import csv
 
@@ -47,7 +59,7 @@ with open(electioncsv, newline="") as csvfile:
 
         #count khan's votes
 
-        # if row[2] == "Khan":
+        # if row[2] == (candidate_list[0]):
         #     khan_votecount = khan_votecount + 1
 
         # if row[2] == "Li":
@@ -95,7 +107,7 @@ print("______________________")
 
 # print(str(total_votecount) +" total votes")
 
-# print("Khan received " +str(khan_votecount)+" votes. (" +str((khan_votecount/total_votecount)*100)+ "%)")
+# print("Khan:  " +str(khan_votecount)+" votes. (" +str((khan_votecount/total_votecount)*100)+ "%)")
 # print("Li received " +str(li_votecount)+" votes. (" +str((li_votecount/total_votecount)*100)+ "%)")
 # print("O'Tooley received " +str(otooley_votecount)+" votes. (" +str((otooley_votecount/total_votecount)*100)+ "%)")
 # print("Correy received " +str(correy_votecount)+" votes. (" +str((correy_votecount/total_votecount)*100)+ "%)")
