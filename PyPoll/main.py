@@ -8,6 +8,8 @@ import csv
 
 candidate_list = []
 votes = []
+
+
 total_votecount = 0
 khan_votecount = 0
 li_votecount = 0
@@ -33,30 +35,34 @@ with open(electioncsv, newline="") as csvfile:
 
     for row in csvreader:
 
+        candidate_name = row[2]
+                
         #count the total votes
-        total_votecount = total_votecount + 1 
+        # total_votecount = total_votecount + 1 
 
-        # if row[0] not in candidate_list:
-        #         candidate_list.append(row[0])
+        if candidate_name not in candidate_list:
+            candidate_list.append(row[2])
+
+
 
         #count khan's votes
 
-        if row[2] == "Khan":
-            khan_votecount = khan_votecount + 1
+        # if row[2] == "Khan":
+        #     khan_votecount = khan_votecount + 1
 
-        if row[2] == "Li":
-            li_votecount = li_votecount + 1
+        # if row[2] == "Li":
+        #     li_votecount = li_votecount + 1
 
-        if row[2] == "O'Tooley":
-            otooley_votecount = otooley_votecount + 1
+        # if row[2] == "O'Tooley":
+        #     otooley_votecount = otooley_votecount + 1
 
-        if row[2] == "Correy":
-            correy_votecount = correy_votecount + 1
+        # if row[2] == "Correy":
+        #     correy_votecount = correy_votecount + 1
 
 
     #Add each unique candidate to list - append to list both a name and a vote count for that name
-            if row[0] not in candidate_list:
-                candidate_list.append(row[0])
+            # if row[0] not in candidate_list:
+            #     candidate_list.append(row[0])
 
 
     #Tally the number of votes each got - run a counter 
@@ -68,35 +74,33 @@ with open(electioncsv, newline="") as csvfile:
         #Do I build the place winners as I go? 
             #review list work - ??  
 
-if correy_votecount > khan_votecount and correy_votecount > li_votecount and correy_votecount> otooley_votecount:
-    winner = "Correy"
+# if correy_votecount > khan_votecount and correy_votecount > li_votecount and correy_votecount> otooley_votecount:
+#     winner = "Correy"
 
-if li_votecount > khan_votecount and li_votecount > correy_votecount and li_votecount> otooley_votecount:
-    winner = "Li"
+# if li_votecount > khan_votecount and li_votecount > correy_votecount and li_votecount> otooley_votecount:
+#     winner = "Li"
 
-if khan_votecount > otooley_votecount and khan_votecount > li_votecount and khan_votecount> correy_votecount:
-    winner = "Khan"
+# if khan_votecount > otooley_votecount and khan_votecount > li_votecount and khan_votecount> correy_votecount:
+#     winner = "Khan"
 
-if otooley_votecount > khan_votecount and otooley_votecount > li_votecount and otooley_votecount> correy_votecount:
-    winner = "O'TOoley"
+# if otooley_votecount > khan_votecount and otooley_votecount > li_votecount and otooley_votecount> correy_votecount:
+#     winner = "O'TOoley"
 
 
-#         # if row[1] not in Category:
-        #     Category.append(row[1])
-
-print("Election Results")
-# print(candidate_list) 
+# print("Election Results")
+print(candidate_list) 
+print(candidate_list[1])
 
 print("______________________")
 
-print(str(total_votecount) +" total votes")
+# print(str(total_votecount) +" total votes")
 
-print("Khan received " +str(khan_votecount)+" votes. (" +str((khan_votecount/total_votecount)*100)+ "%)")
-print("Li received " +str(li_votecount)+" votes. (" +str((li_votecount/total_votecount)*100)+ "%)")
-print("O'Tooley received " +str(otooley_votecount)+" votes. (" +str((otooley_votecount/total_votecount)*100)+ "%)")
-print("Correy received " +str(correy_votecount)+" votes. (" +str((correy_votecount/total_votecount)*100)+ "%)")
+# print("Khan received " +str(khan_votecount)+" votes. (" +str((khan_votecount/total_votecount)*100)+ "%)")
+# print("Li received " +str(li_votecount)+" votes. (" +str((li_votecount/total_votecount)*100)+ "%)")
+# print("O'Tooley received " +str(otooley_votecount)+" votes. (" +str((otooley_votecount/total_votecount)*100)+ "%)")
+# print("Correy received " +str(correy_votecount)+" votes. (" +str((correy_votecount/total_votecount)*100)+ "%)")
 
-print("The winner is " + winner)
+# print("The winner is " + winner)
 
 #   Election Results
 #   -------------------------
