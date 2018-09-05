@@ -62,7 +62,6 @@ with open(budgetcsv, newline="") as csvfile:
         monthly_change = (int(row[1]) - lastmonth)
 
         #store the value in column 2 for the next loop 
-
         lastmonth = int(row[1])
         
         #store the month count ever loop 
@@ -74,7 +73,6 @@ with open(budgetcsv, newline="") as csvfile:
         #the running total is running sum of monthly changes divided by months 
         average_change = monthly_change_sum/month_count
 
-        average_change 
 
         #compare each row as you go - if it beats the best month, update the best month to that tag and assign the month to a new variable
         #The greatest increase in profits (date and amount) over the entire period
@@ -101,12 +99,14 @@ print("Average Change: $" + str(average_change))
 print("Greatest Increase in Profits: " + best_month_date + "/ $" + str(best_month_amt))
 print("Greatest Decrease in Profits: " + worst_month_date + "/ $" + str(worst_month_amt))
 
-#export above to text file
 
-
-
-
-
-#Aug 31 - successful screen outputs! Need to check my work - on a much smaller sheet? 
-#also need to figure out rounding error thing 
-#mostly need to figure out text function - for another day! 
+#print outputs to text file 
+#create file 
+print_results = os.path.join("text_output.txt")
+#open file for editing in writing 
+with open (print_results, 'w') as text_output:
+    text_output.write("Total Months: " + str(month_count))
+    text_output.write("\nNet Gain/Loss: $" + str(net_amount))
+    text_output.write("\nAverage Change: $" + str(average_change))
+    text_output.write("\nGreatest Increase in Profits: " + best_month_date + "/ $" + str(best_month_amt))
+    text_output.write("\nGreatest Decrease in Profits: " + worst_month_date + "/ $" + str(worst_month_amt))
