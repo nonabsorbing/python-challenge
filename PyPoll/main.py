@@ -44,13 +44,14 @@ for candidate in candidates_set:
 #use max function on dictionary to determine winner 
 winner = max(most_votes, key=most_votes.get)
 
-print("Election Results")
-print("______________________")
-print(str(total_votes) +" total votes")
-print(str(all_results)+"\n")
-print(winner + " is the winner")
+
+#print results to screen
+print("Election Results\n _______________\n" + str(total_votes) +" total votes \n" + str(all_results)+" \n" + winner + " is the winner") 
 
 
-
-#For Loop thru file 
-# #Add each unique candidate to list - append to list both a name and a vote count for that name
+#print outputs to text file 
+#create file 
+print_results = os.path.join("text_output.txt")
+#open file for editing in writing 
+with open (print_results, 'w') as text_output:
+    text_output.write("Election Results\n _______________\n" + str(total_votes) +" total votes \n" + str(all_results)+" \n" + winner + " is the winner") 

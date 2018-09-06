@@ -59,7 +59,7 @@ with open(budgetcsv, newline="") as csvfile:
     #output - need to loop and store - (month 2 - month 1)
 
        #the change is the value in column 2 minus the amount from last month 
-        monthly_change = (int(row[1]) - lastmonth)
+        monthly_change = (lastmonth - int(row[1]))
 
         #store the value in column 2 for the next loop 
         lastmonth = int(row[1])
@@ -73,7 +73,7 @@ with open(budgetcsv, newline="") as csvfile:
         #the running total is running sum of monthly changes divided by months 
         average_change = monthly_change_sum/month_count
 
-
+        
         #compare each row as you go - if it beats the best month, update the best month to that tag and assign the month to a new variable
         #The greatest increase in profits (date and amount) over the entire period
 
@@ -87,11 +87,12 @@ with open(budgetcsv, newline="") as csvfile:
             worst_month_amt = int(row[1]) 
             worst_month_date = row[0] 
     
-
 # screenprint
 
-print("Financial Analysis")
-print("____________________________")
+"{:.2f}".format(average_change)
+
+print("\nFinancial Analysis")
+print("____________________________\n")
 
 print("Total Months: " + str(month_count))
 print("Net Gain/Loss: $" + str(net_amount))
